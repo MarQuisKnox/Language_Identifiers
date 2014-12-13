@@ -1,0 +1,1450 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="Tex Texin">
+<meta name="copyright" content="&copy; 2004 Tex Texin">
+<meta http-equiv="Content-Language" content="en-US">
+<meta name="keywords" lang="en-US" content=" language identifier, language tag, match, locale, RFC 5646, BCP 47, RFC 3066, RFC 4646, RFC 4647, internationalization, localization,  globalization, i18n, l10n, g11n, Texin, I18nGuy, XenCraft, Tex Texin">
+<meta name="robots" content="all">
+<meta name="description" content="Draft document on using language tags">
+
+<title>Using Language Identifiers (RFC 3066)</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link href="langid.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+body {
+padding :1em;
+margin : 1em auto;
+width : 800px;
+font-family : arial, verdana, helvetica, sans-serif;
+}
+p.intro {
+width : 85%;
+}
+td.lid {
+font-weight : bold;
+font-size : small;
+}
+table.langs {
+border: 1px solid gray;
+border-collapse : collapse;
+}
+td.lid, td.langs, th {
+border: 1px solid gray;
+padding: 2px 5px;
+}
+th {
+text-align:left;
+color : white;
+background-color :#006;
+}
+.low {
+color:#009;
+background-color :#CCC;
+margin-left: 1em;
+font-style:italic;
+font-weight: 700;
+}
+</style>
+</head>
+
+<body>
+<table style="width:107%;margin:0 0 10px -7%;vertical-align:middle;padding:0;"
+cellpadding="0" cellspacing="0">
+<tr id="top"><td>
+<a href="http://www.i18nguy.com"><img src="../images/i18nguy-logo.png"
+ border="0" width="125" height="104" alt="I18n Guy, your I18n advisor"></a>
+</td><td>
+<h1 style="vertical-align:middle;">Using Language Identifiers (RFC 3066)</h1>
+</td></tr>
+</table>
+
+<p>Language identifiers as specified by
+<a href="http://www.ietf.org/rfc/rfc3066.txt" target="_blank">RFC 3066</a>, can have the form
+language, language-country, language-country-variant and some other specialized forms.
+The guidelines for choosing between language and language-country are ambiguous.
+<br><br>
+To clarify which form should be used, John Cowan and I have posted this list for review.
+<b>This is currently a draft document.</b> It will be continually revised as we get feedback from
+linguists and internationalization experts. (Although, I have a day job, so allow some time for me turn
+it around.) The topic is being discussed on the
+W3C <a href="http://lists.w3.org/Archives/Public/www-international/" target="_blank">www-international
+mail list</a> and the IETF
+<a href="http://eikenes.alvestrand.no/pipermail/ietf-languages" target="_blank">ietf-lang mail list</a>.
+(The feedback thread starts <a href="http://lists.w3.org/Archives/Public/www-international/2004OctDec/0131.html" target="_blank">www-international 2004OctDec-0131</a>
+and
+<a href="http://eikenes.alvestrand.no/pipermail/ietf-languages/2004-December/002431.html" target="_blank">ietf-lang 2004-12-002431</a>.)
+</p>
+<p>This page is intended to list combinations of language code and country
+code that have been found useful in distinguishing language variants from
+each other. Please write the authors if you think either that there is no
+variation between two code pairs listed, or that there are
+additional code pairs that are useful in distinguishing written variants.
+</p>
+<p id="comments">Send comments to Tex Texin and John Cowan. To improve turn-around of edits,
+please make sure the mail uses the subject:
+"<b>Language Identifier List Comments</b>". This will help us easily identify the mails and process them.
+Please use a different subject heading for other discussions.
+</p>
+
+<p>There are a number of suggestions for deciding whether to use a one-level (language only) or two-level
+(language-region)
+tag. They require some discussion and will be added here shortly.
+</p>
+<p><b>Language codes</b> used as primary subtags are from <a href="http://www.loc.gov/standards/iso639-2/langcodes.html" target="_blank">ISO 639</a>.
+<b>Country codes</b> used as secondary subtags (or tertiary if script tags are secondary)
+are from
+<a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html" target="_blank">ISO 3166</a>.
+Note also that several <b>unique language tags</b> are also defined in the
+<a href="http://www.iana.org/assignments/language-tags" target="_blank">IANA Language Tag Registry</a>.
+Script codes, generally 4 letters in length, such as "Hans" for Simplified Chinese, "Hant" for Traditonal Chinese, "Cyrl" for Cyrillic, etc.
+are defined by <a href="http://www.unicode.org/iso15924/codelists.html" target="_blank">ISO 15924 Codes For The Representation Of Names Of Scripts</a>.
+
+</p>
+
+<div style="color:gray;font-size:48pt;text-align:center;">DRAFT</div>
+
+<h3 style="text-align:center">Proposed List of 1-level Language Identifiers</h3>
+<p>Some languages have no significant variations, and
+therefore can be adequately represented by
+a language subtag alone, as opposed to a language subtag and country subtag.
+We would like to clarify which languages are in this category.
+</p>
+
+
+<h3 style="text-align:center">Proposed List of 2-level Language Identifiers</h3>
+<p>Some languages differ by region and therefore a language subtag and country subtag
+may be used to identify the language more precisely.
+Note that depending on the purpose or intended audience of the content, a very precise label
+may not be needed and a one-level language tag may be adequate.
+For example, using "en" for this page may be sufficient instead of en-US. If the tag is being used with an
+application (as opposed to labeling content) the requirement for precision may also vary.</p>
+<p>John Cowan provided the original data for this list.
+The list has since been amended based on suggestions from a number of folks and considerable research.
+</p>
+
+<h3>Table Legend</h3>
+<p style="color:#222;font-size:small;font-weight:bold;">In the following table, the language codes are
+followed by a parenthesized expression which contains the language name
+and if the region code is different from the region represented by the row, a region name.
+For example, en-US (English, U.S.).
+</p>
+<p style="color:#222;font-size:small;font-weight:bold;">Tags will look different
+depending on their source and whether they have been deprecated. Their appearance is as follows:</p>
+<p style="text-align:center"><span class ="item">ISO 639 tags</span>
+<span class ="item iana">IANA registry tags</span>
+<span class ="item dep">deprecated tags</span>
+<span class ="item bis">proposed RFC 3066bis tags</span>
+</p>
+
+
+<table class="langs" border="1">
+
+<tr><th>Region<br>Code</th><th>Region&nbsp;Name</th><th>Languages<br>[Format:Tag (Language Name, Region Name)]</th></tr>
+
+<tr><td class="rcode">(none)</td>
+<td class="rname">No region assigned</td>
+<td class="lngs"><span class="item">eo (Esperanto)</span>
+<span class="item">ia (Interlingua)</span>
+<span class="item">ie (Interlingue)</span>
+<span class="item">io (Ido)</span>
+<span class="item">vo (Volapük)</span></td></tr>
+
+<tr><td class="rcode">AD</td>
+<td class="rname">Andorra</td>
+<td class="lngs"><span class="item">ca (Catalan)</span>
+<span class="item">fr-AD (French)</span></td></tr>
+
+<tr><td class="rcode">AE</td>
+<td class="rname">United Arab Emirates</td>
+<td class="lngs"><span class="item">ar-AE (Arabic)</span></td></tr>
+
+<tr><td class="rcode">AF</td>
+<td class="rname">Afghanistan</td>
+<td class="lngs"><span class="item">fa-AF (Persian)</span>
+<span class="item">ps (Pushto)</span>
+<span class="item">ug (Uighur)</span>
+<span class="item">uz-AF (Uzbek)</span></td></tr>
+
+<tr><td class="rcode">AG</td>
+<td class="rname">Antigua And Barbuda</td>
+<td class="lngs"><span class="item">en-AG (English)</span></td></tr>
+
+<tr><td class="rcode">AI</td>
+<td class="rname">Anguilla</td>
+<td class="lngs"><span class="item">en-AI (English)</span></td></tr>
+
+<tr><td class="rcode">AL</td>
+<td class="rname">Albania</td>
+<td class="lngs"><span class="item">sq (Albanian)</span></td></tr>
+
+<tr><td class="rcode">AM</td>
+<td class="rname">Armenia</td>
+<td class="lngs"><span class="item">hy (Armenian)</span></td></tr>
+
+<tr><td class="rcode">AN</td>
+<td class="rname">Netherlands Antilles</td>
+<td class="lngs"><span class="item">nl-AN (Dutch)</span></td></tr>
+
+<tr><td class="rcode">AO</td>
+<td class="rname">Angola</td>
+<td class="lngs"><span class="item">kg (Kongo)</span>
+<span class="item">kj (Kuanyama)</span>
+<span class="item">pt-AO (Portuguese)</span></td></tr>
+
+<tr><td class="rcode">AR</td>
+<td class="rname">Argentina</td>
+<td class="lngs"><span class="item">cy-AR (Welsh)</span>
+<span class="item">es-AR (Spanish)</span>
+<span class="item">gn (Guarani)</span></td></tr>
+
+<tr><td class="rcode">AS</td>
+<td class="rname">American Samoa</td>
+<td class="lngs"><span class="item">en-AS (English)</span>
+<span class="item">sm (Samoan)</span></td></tr>
+
+<tr><td class="rcode">AT</td>
+<td class="rname">Austria</td>
+<td class="lngs"><span class="item">de-AT (German)</span>
+<span class="item">hu (Hungarian)</span></td></tr>
+
+<tr><td class="rcode">AU</td>
+<td class="rname">Australia</td>
+<td class="lngs"><span class="item">en-AU (English)</span>
+<span class="item">YI (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">AW</td>
+<td class="rname">Aruba</td>
+<td class="lngs"><span class="item">nl-AW (Dutch)</span></td></tr>
+
+<tr><td class="rcode">AX</td>
+<td class="rname">Åland Islands</td>
+<td class="lngs"><span class="item">sv-AX (Swedish)</span></td></tr>
+
+<tr><td class="rcode">AZ</td>
+<td class="rname">Azerbaijan</td>
+<td class="lngs"><span class="item">av (Avaric)</span>
+<span class="item">az (Azerbaijani)</span>
+<span class="item iana">az-Arab (Azerbaijani)</span>
+<span class="item iana">az-Cyrl (Azerbaijani)</span>
+<span class="item iana">az-Latn (Azerbaijani)</span>
+<span class="item">os (Ossetian)</span></td></tr>
+
+<tr><td class="rcode">BA</td>
+<td class="rname">Bosnia And Herzegovina</td>
+<td class="lngs"><span class="item">bs (Bosnian)</span>
+<span class="item">hr-BA (Croatian)</span>
+<span class="item">sr-BA (Serbian)</span></td></tr>
+
+<tr><td class="rcode">BB</td>
+<td class="rname">Barbados</td>
+<td class="lngs"><span class="item">en-BB (English)</span></td></tr>
+
+<tr><td class="rcode">BD</td>
+<td class="rname">Bangladesh</td>
+<td class="lngs"><span class="item">bn-BD (Bengali)</span></td></tr>
+
+<tr><td class="rcode">BE</td>
+<td class="rname">Belgium</td>
+<td class="lngs"><span class="item">de-BE (German)</span>
+<span class="item">en-BE (English)</span>
+<span class="item">fr-BE (French)</span>
+<span class="item">nl-BE (Dutch)</span>
+<span class="item">wa (Walloon)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">BF</td>
+<td class="rname">Burkina Faso</td>
+<td class="lngs"><span class="item">bm (Bambara)</span>
+<span class="item">fr-BF (French)</span>
+<span class="item">ha (Hausa)</span></td></tr>
+
+<tr><td class="rcode">BG</td>
+<td class="rname">Bulgaria</td>
+<td class="lngs"><span class="item">bg (Bulgarian)</span>
+<span class="item">cu (Church Slavic)</span>
+<span class="item">tr-BG (Turkish)</span></td></tr>
+
+<tr><td class="rcode">BH</td>
+<td class="rname">Bahrain</td>
+<td class="lngs"><span class="item">ar-BH (Arabic)</span></td></tr>
+
+<tr><td class="rcode">BI</td>
+<td class="rname">Burundi</td>
+<td class="lngs"><span class="item">fr-BI (French)</span>
+<span class="item">rn (Rundi)</span></td></tr>
+
+<tr><td class="rcode">BJ</td>
+<td class="rname">Benin</td>
+<td class="lngs"><span class="item">fr-BJ (French)</span></td></tr>
+
+<tr><td class="rcode">BM</td>
+<td class="rname">Bermuda</td>
+<td class="lngs"><span class="item">en-BM (English)</span></td></tr>
+
+<tr><td class="rcode">BN</td>
+<td class="rname">Brunei Darussalam</td>
+<td class="lngs"><span class="item">en-BN (English)</span>
+<span class="item">ms-BN (Malay)</span></td></tr>
+
+<tr><td class="rcode">BO</td>
+<td class="rname">Bolivia</td>
+<td class="lngs"><span class="item">ay (Aymara)</span>
+<span class="item">es-BO (Spanish)</span></td></tr>
+
+<tr><td class="rcode">BR</td>
+<td class="rname">Brazil</td>
+<td class="lngs"><span class="item">pt-BR (Portuguese)</span></td></tr>
+
+<tr><td class="rcode">BS</td>
+<td class="rname">Bahamas</td>
+<td class="lngs"><span class="item">en-BS (English)</span></td></tr>
+
+<tr><td class="rcode">BT</td>
+<td class="rname">Bhutan</td>
+<td class="lngs"><span class="item">dz (Dzongkha)</span>
+<span class="item">ne (Nepali)</span></td></tr>
+
+<tr><td class="rcode">BW</td>
+<td class="rname">Botswana</td>
+<td class="lngs"><span class="item">en-BW (English)</span>
+<span class="item">sn (Shona)</span>
+<span class="item">tn-BW (Tswana)</span></td></tr>
+
+<tr><td class="rcode">BY</td>
+<td class="rname">Belarus</td>
+<td class="lngs"><span class="item">be (Belarusian)</span>
+<span class="item">cu (Church Slavic)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">BZ</td>
+<td class="rname">Belize</td>
+<td class="lngs"><span class="item">en-BZ (English)</span></td></tr>
+
+<tr><td class="rcode">CA</td>
+<td class="rname">Canada</td>
+<td class="lngs"><span class="item">cr (Cree)</span>
+<span class="item">en-CA (English)</span>
+<span class="item">fr-CA (French)</span>
+<span class="item">iu (Inuktitut)</span>
+<span class="item">oj (Ojibwa)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">CC</td>
+<td class="rname">Cocos (Keeling) Islands</td>
+<td class="lngs"><span class="item">ms-CC (Malay)</span></td></tr>
+
+<tr><td class="rcode">CD</td>
+<td class="rname">Congo, The Democratic Republic Of The</td>
+<td class="lngs"><span class="item">fr-CD (French)</span>
+<span class="item">kg (Kongo)</span>
+<span class="item">ln-CD (Lingala)</span>
+<span class="item">lu (Luba-Katanga)</span></td></tr>
+
+<tr><td class="rcode">CF</td>
+<td class="rname">Central African Republic</td>
+<td class="lngs"><span class="item">fr-CF (French)</span>
+<span class="item">sg (Sango)</span></td></tr>
+
+<tr><td class="rcode">CG</td>
+<td class="rname">Congo</td>
+<td class="lngs"><span class="item">fr-CG (French)</span>
+<span class="item">kg (Kongo)</span>
+<span class="item">ln-CG (Lingala)</span></td></tr>
+
+<tr><td class="rcode">CH</td>
+<td class="rname">Switzerland</td>
+<td class="lngs"><span class="item">de-CH (German)</span>
+<span class="item">fr-CH (French)</span>
+<span class="item">it-CH (Italian)</span>
+<span class="item">rm (Raeto-Romance)</span></td></tr>
+
+<tr><td class="rcode">CI</td>
+<td class="rname">Côte D'ivoire</td>
+<td class="lngs"><span class="item">ak (Akan)</span>
+<span class="item">bm (Bambara)</span>
+<span class="item">fr-CI (French)</span></td></tr>
+
+<tr><td class="rcode">CK</td>
+<td class="rname">Cook Islands</td>
+<td class="lngs"><span class="item">en-CK (English)</span></td></tr>
+
+<tr><td class="rcode">CL</td>
+<td class="rname">Chile</td>
+<td class="lngs"><span class="item">ay (Aymara)</span>
+<span class="item">es-CL (Spanish)</span></td></tr>
+
+<tr><td class="rcode">CM</td>
+<td class="rname">Cameroon</td>
+<td class="lngs"><span class="item">en-CM (English)</span>
+<span class="item">fr-CM (French)</span></td></tr>
+
+<tr><td class="rcode">CN</td>
+<td class="rname">China</td>
+<td class="lngs"><span class="item">bo (Tibetan)</span>
+<span class="item iana">i-hak (Hakka)</span>
+<span class="item">ii (Sichuan Yi)</span>
+<span class="item">za (Zhuang)</span>
+<span class="item">zh-CN (Chinese)</span>
+<span class="item iana">zh-gan (Chinese)</span>
+<span class="item iana">zh-guoyu (Chinese)</span>
+<span class="item iana">zh-hakka (Chinese)</span>
+<span class="item iana">zh-Hans (Chinese)</span>
+<span class="item bis">zh-Hans-CN (Chinese)</span>
+<span class="item iana">zh-Hant (Chinese)</span>
+<span class="item bis">zh-Hant-CN (Chinese)</span>
+<span class="item iana">zh-wuu (Chinese)</span>
+<span class="item iana">zh-xiang (Chinese)</span>
+<span class="item iana">zh-yue (Chinese)</span></td></tr>
+
+<tr><td class="rcode">CO</td>
+<td class="rname">Colombia</td>
+<td class="lngs"><span class="item">es-CO (Spanish)</span></td></tr>
+
+<tr><td class="rcode">CR</td>
+<td class="rname">Costa Rica</td>
+<td class="lngs"><span class="item">es-CR (Spanish)</span></td></tr>
+
+<tr><td class="rcode">CS</td>
+<td class="rname">Serbia And Montenegro</td>
+<td class="lngs"><span class="item">cu (Church Slavic)</span>
+<span class="item">hu (Hungarian)</span>
+<span class="item">sq (Albanian)</span>
+<span class="item">sr (Serbian)</span>
+<span class="item iana">sr-Cyrl (Serbian)</span>
+<span class="item iana">sr-Latn (Serbian)</span></td></tr>
+
+<tr><td class="rcode">CU</td>
+<td class="rname">Cuba</td>
+<td class="lngs"><span class="item">es-CU (Spanish)</span></td></tr>
+
+<tr><td class="rcode">CV</td>
+<td class="rname">Cape Verde</td>
+<td class="lngs"><span class="item">pt-CV (Portuguese)</span></td></tr>
+
+<tr><td class="rcode">CX</td>
+<td class="rname">Christmas Island</td>
+<td class="lngs"><span class="item">ms-CC (Malay,Cocos (Keeling) Islands)</span></td></tr>
+
+<tr><td class="rcode">CY</td>
+<td class="rname">Cyprus</td>
+<td class="lngs"><span class="item">el-CY (Greek)</span>
+<span class="item">tr-CY (Turkish)</span></td></tr>
+
+<tr><td class="rcode">CZ</td>
+<td class="rname">Czech Republic</td>
+<td class="lngs"><span class="item">cs (Czech)</span></td></tr>
+
+<tr><td class="rcode">DE</td>
+<td class="rname">Germany</td>
+<td class="lngs"><span class="item">da-DE (Danish)</span>
+<span class="item">da-DE (Danish)</span>
+<span class="item iana">de-1901 (German)</span>
+<span class="item iana">de-1996 (German)</span>
+<span class="item iana">de-AT-1901 (German)</span>
+<span class="item iana">de-AT-1996 (German)</span>
+<span class="item iana">de-CH-1901 (German)</span>
+<span class="item iana">de-CH-1996 (German)</span>
+<span class="item">de-DE (German)</span>
+<span class="item iana">de-DE-1901 (German)</span>
+<span class="item iana">de-DE-1996 (German)</span>
+<span class="item">dsb (Lower Sorbian)</span>
+<span class="item">fy-DE (Frisian)</span>
+<span class="item">hsb (Upper Sorbian)</span>
+<span class="item">lb (Luxembourgish)</span>
+<span class="item">nds (Low German)</span>
+<span class="item">wen (Sorbian)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">DJ</td>
+<td class="rname">Djibouti</td>
+<td class="lngs"><span class="item">aa-DJ (Afar)</span>
+<span class="item">fr-DJ (French)</span>
+<span class="item">so-DJ (Somali)</span></td></tr>
+
+<tr><td class="rcode">DK</td>
+<td class="rname">Denmark</td>
+<td class="lngs"><span class="item">da-DK (Danish)</span>
+<span class="item">de-DK (German)</span></td></tr>
+
+<tr><td class="rcode">DM</td>
+<td class="rname">Dominica</td>
+<td class="lngs"><span class="item">en-DM (English)</span></td></tr>
+
+<tr><td class="rcode">DO</td>
+<td class="rname">Dominican Republic</td>
+<td class="lngs"><span class="item">es-DO (Spanish)</span></td></tr>
+
+<tr><td class="rcode">DZ</td>
+<td class="rname">Algeria</td>
+<td class="lngs"><span class="item">ar-DZ (Arabic)</span></td></tr>
+
+<tr><td class="rcode">EC</td>
+<td class="rname">Ecuador</td>
+<td class="lngs"><span class="item">es-EC (Spanish)</span></td></tr>
+
+<tr><td class="rcode">EE</td>
+<td class="rname">Estonia</td>
+<td class="lngs"><span class="item">et (Estonian)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">EG</td>
+<td class="rname">Egypt</td>
+<td class="lngs"><span class="item">ar-EG (Arabic)</span></td></tr>
+
+<tr><td class="rcode">ER</td>
+<td class="rname">Eritrea</td>
+<td class="lngs"><span class="item">aa-ER (Afar)</span>
+<span class="item">byn (Blin)</span>
+<span class="item">en-ER (English)</span>
+<span class="item">gez-ER (Geez)</span>
+<span class="item">ti-ER (Tigrinya)</span>
+<span class="item">tig (Tigre)</span></td></tr>
+
+<tr><td class="rcode">ES</td>
+<td class="rname">Spain</td>
+<td class="lngs"><span class="item">an (Aragonese)</span>
+<span class="item">ca (Catalan)</span>
+<span class="item">es-ES (Spanish)</span>
+<span class="item">eu (Basque)</span>
+<span class="item">gl (Galician)</span></td></tr>
+
+<tr><td class="rcode">ET</td>
+<td class="rname">Ethiopia</td>
+<td class="lngs"><span class="item">aa-ET (Afar)</span>
+<span class="item">am (Amharic)</span>
+<span class="item">en-ET (English)</span>
+<span class="item">gez-ET (Geez)</span>
+<span class="item">om-ET (Oromo)</span>
+<span class="item">sid (Sidamo)</span>
+<span class="item">so-ET (Somali)</span>
+<span class="item">ti-ET (Tigrinya)</span>
+<span class="item">wal (Walamo)</span></td></tr>
+
+<tr><td class="rcode">FI</td>
+<td class="rname">Finland</td>
+<td class="lngs"><span class="item">fi-FI (Finnish)</span>
+<span class="item">smn (Inari Sami)</span>
+<span class="item">sv-FI (Swedish)</span></td></tr>
+
+<tr><td class="rcode">FJ</td>
+<td class="rname">Fiji</td>
+<td class="lngs"><span class="item">en-FJ (English)</span>
+<span class="item">fj (Fijian)</span></td></tr>
+
+<tr><td class="rcode">FK</td>
+<td class="rname">Falkland Islands (Malvinas)</td>
+<td class="lngs"><span class="item">en-FK (English)</span></td></tr>
+
+<tr><td class="rcode">FM</td>
+<td class="rname">Micronesia, Federated States Of</td>
+<td class="lngs"><span class="item">en-FM (English)</span></td></tr>
+
+<tr><td class="rcode">FO</td>
+<td class="rname">Faroe Islands</td>
+<td class="lngs"><span class="item">da-FO (Danish)</span>
+<span class="item">fo (Faroese)</span></td></tr>
+
+<tr><td class="rcode">FR</td>
+<td class="rname">France</td>
+<td class="lngs"><span class="item">br (Breton)</span>
+<span class="item">co (Corsican)</span>
+<span class="item">de-FR (German)</span>
+<span class="item">fr-FR (French)</span>
+<span class="item">oc (Occitan)</span></td></tr>
+
+<tr><td class="rcode">GA</td>
+<td class="rname">Gabon </td>
+<td class="lngs"><span class="item">fr-GA (French)</span></td></tr>
+
+<tr><td class="rcode">GB</td>
+<td class="rname">United Kingdom</td>
+<td class="lngs"><span class="item">cy-GB (Welsh)</span>
+<span class="item iana">en-boont (English)</span>
+<span class="item">en-GB (English)</span>
+<span class="item iana">en-GB-oed (English)</span>
+<span class="item iana">en-scouse (English)</span>
+<span class="item">fr-GB (French)</span>
+<span class="item">ga-GB (Irish)</span>
+<span class="item">gd (Gaelic)</span>
+<span class="item">gv (Manx)</span>
+<span class="item">kw (Cornish)</span></td></tr>
+
+<tr><td class="rcode">GD</td>
+<td class="rname">Grenada</td>
+<td class="lngs"><span class="item">en-GD (English)</span></td></tr>
+
+<tr><td class="rcode">GE</td>
+<td class="rname">Georgia</td>
+<td class="lngs"><span class="item">ab (Abkhazian)</span>
+<span class="item">ka (Georgian)</span>
+<span class="item">os (Ossetian)</span></td></tr>
+
+<tr><td class="rcode">GF</td>
+<td class="rname">French Guiana</td>
+<td class="lngs"><span class="item">fr-GF (French)</span></td></tr>
+
+<tr><td class="rcode">GH</td>
+<td class="rname">Ghana</td>
+<td class="lngs"><span class="item">ak (Akan)</span>
+<span class="item">ee (Ewe)</span>
+<span class="item">en-GH (English)</span>
+<span class="item">tw (Twi)</span></td></tr>
+
+<tr><td class="rcode">GI</td>
+<td class="rname">Gibraltar</td>
+<td class="lngs"><span class="item">en-GI (English)</span></td></tr>
+
+<tr><td class="rcode">GL</td>
+<td class="rname">Greenland</td>
+<td class="lngs"><span class="item">da-GL (Danish)</span>
+<span class="item">kl (Kalaallisut)</span></td></tr>
+
+<tr><td class="rcode">GM</td>
+<td class="rname">Gambia</td>
+<td class="lngs"><span class="item">bm (Bambara)</span>
+<span class="item">en-GM (English)</span>
+<span class="item">wo (Wolof)</span></td></tr>
+
+<tr><td class="rcode">GN</td>
+<td class="rname">Guinea</td>
+<td class="lngs"><span class="item">fr-GN (French)</span></td></tr>
+
+<tr><td class="rcode">GP</td>
+<td class="rname">Guadeloupe</td>
+<td class="lngs"><span class="item">fr-GP (French)</span></td></tr>
+
+<tr><td class="rcode">GQ</td>
+<td class="rname">Equatorial Guinea</td>
+<td class="lngs"><span class="item">es-GQ (Spanish)</span></td></tr>
+
+<tr><td class="rcode">GR</td>
+<td class="rname">Greece</td>
+<td class="lngs"><span class="item">el-GR (Greek)</span></td></tr>
+
+<tr><td class="rcode">GT</td>
+<td class="rname">Guatemala</td>
+<td class="lngs"><span class="item">es-GT (Spanish)</span></td></tr>
+
+<tr><td class="rcode">GU</td>
+<td class="rname">Guam</td>
+<td class="lngs"><span class="item">ch-GU (Chamorro)</span>
+<span class="item">en-GU (English)</span></td></tr>
+
+<tr><td class="rcode">GW</td>
+<td class="rname">Guinea-Bissau</td>
+<td class="lngs"><span class="item">pt-GW (Portuguese)</span></td></tr>
+
+<tr><td class="rcode">GY</td>
+<td class="rname">Guyana</td>
+<td class="lngs"><span class="item">en-GY (English)</span></td></tr>
+
+<tr><td class="rcode">HK</td>
+<td class="rname">Hong Kong</td>
+<td class="lngs"><span class="item">en-HK (English)</span>
+<span class="item iana">zh-Hant (Chinese)</span>
+<span class="item">zh-Hant-HK (Chinese)</span>
+<span class="item">zh-HK (Chinese)</span></td></tr>
+
+<tr><td class="rcode">HN</td>
+<td class="rname">Honduras</td>
+<td class="lngs"><span class="item">es-HN (Spanish)</span></td></tr>
+
+<tr><td class="rcode">HR</td>
+<td class="rname">Croatia</td>
+<td class="lngs"><span class="item">hr-HR (Croatian)</span>
+<span class="item">it-HR (Italian)</span></td></tr>
+
+<tr><td class="rcode">HT</td>
+<td class="rname">Haiti</td>
+<td class="lngs"><span class="item">fr-HT (French)</span>
+<span class="item">ht (Haitian)</span></td></tr>
+
+<tr><td class="rcode">HU</td>
+<td class="rname">Hungary</td>
+<td class="lngs"><span class="item">de-HU (German)</span>
+<span class="item">hu-HU (Hungarian)</span>
+<span class="item">sk-HU (Slovak)</span>
+<span class="item">sr-HU (Serbian)</span></td></tr>
+
+<tr><td class="rcode">ID</td>
+<td class="rname">Indonesia</td>
+<td class="lngs"><span class="item">id (Indonesian)</span>
+<span class="item">jv (Javanese)</span>
+<span class="item">su (Sundanese)</span></td></tr>
+
+<tr><td class="rcode">IE</td>
+<td class="rname">Ireland</td>
+<td class="lngs"><span class="item">en-IE (English)</span>
+<span class="item">ga-IE (Irish)</span></td></tr>
+
+<tr><td class="rcode">IL</td>
+<td class="rname">Israel</td>
+<td class="lngs"><span class="item">ar-IL (Arabic)</span>
+<span class="item">en-IL (English)</span>
+<span class="item">he (Hebrew)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">IN</td>
+<td class="rname">India</td>
+<td class="lngs"><span class="item">ar-IN (Arabic)</span>
+<span class="item">as (Assamese)</span>
+<span class="item">bh (Bihari)</span>
+<span class="item">bn-IN (Bengali)</span>
+<span class="item">en-IN (English)</span>
+<span class="item">gu (Gujarati)</span>
+<span class="item">hi (Hindi)</span>
+<span class="item">kn (Kannada)</span>
+<span class="item">kok (Konkani)</span>
+<span class="item">ks (Kashmiri)</span>
+<span class="item">ml (Malayalam)</span>
+<span class="item">mr (Marathi)</span>
+<span class="item">ne (Nepali)</span>
+<span class="item">or (Oriya)</span>
+<span class="item">pa (Panjabi)</span>
+<span class="item">pi (Pali)</span>
+<span class="item">sa (Sanskrit)</span>
+<span class="item">sd-IN (Sindhi)</span>
+<span class="item">ta-IN (Tamil)</span>
+<span class="item">te (Telugu)</span>
+<span class="item">ur-IN (Urdu)</span></td></tr>
+
+<tr><td class="rcode">IO</td>
+<td class="rname">British Indian Ocean Territory</td>
+<td class="lngs"><span class="item">en-IO (English)</span></td></tr>
+
+<tr><td class="rcode">IQ</td>
+<td class="rname">Iraq</td>
+<td class="lngs"><span class="item">ar-IQ (Arabic)</span>
+<span class="item">ku (Kurdish)</span></td></tr>
+
+<tr><td class="rcode">IR</td>
+<td class="rname">Iran, Islamic Republic Of</td>
+<td class="lngs"><span class="item">ae (Avestan)</span>
+<span class="item">fa-IR (Persian)</span>
+<span class="item">ku (Kurdish)</span></td></tr>
+
+<tr><td class="rcode">IS</td>
+<td class="rname">Iceland</td>
+<td class="lngs"><span class="item">is (Icelandic)</span></td></tr>
+
+<tr><td class="rcode">IT</td>
+<td class="rname">Italy</td>
+<td class="lngs"><span class="item">co (Corsican)</span>
+<span class="item">de-IT (German)</span>
+<span class="item">fr-IT (French)</span>
+<span class="item">it-IT (Italian)</span>
+<span class="item">sc (Sardinian)</span></td></tr>
+
+<tr><td class="rcode">JM</td>
+<td class="rname">Jamaica</td>
+<td class="lngs"><span class="item">en-JM (English)</span></td></tr>
+
+<tr><td class="rcode">JO</td>
+<td class="rname">Jordan</td>
+<td class="lngs"><span class="item">ar-JO (Arabic)</span></td></tr>
+
+<tr><td class="rcode">JP</td>
+<td class="rname">Japan</td>
+<td class="lngs"><span class="item">ja (Japanese)</span></td></tr>
+
+<tr><td class="rcode">KE</td>
+<td class="rname">Kenya</td>
+<td class="lngs"><span class="item">en-KE (English)</span>
+<span class="item">ki (Kikuyu)</span>
+<span class="item">om-KE (Oromo)</span>
+<span class="item">so-KE (Somali)</span>
+<span class="item">sw-KE (Swahili)</span></td></tr>
+
+<tr><td class="rcode">KG</td>
+<td class="rname">Kyrgyzstan</td>
+<td class="lngs"><span class="item">ky (Kirghiz)</span>
+<span class="item">ug (Uighur)</span></td></tr>
+
+<tr><td class="rcode">KH</td>
+<td class="rname">Cambodia</td>
+<td class="lngs"><span class="item">km (Khmer)</span></td></tr>
+
+<tr><td class="rcode">KI</td>
+<td class="rname">Kiribati</td>
+<td class="lngs"><span class="item">en-KI (English)</span></td></tr>
+
+<tr><td class="rcode">KM</td>
+<td class="rname">Comoros</td>
+<td class="lngs"><span class="item">fr-KM (French)</span></td></tr>
+
+<tr><td class="rcode">KN</td>
+<td class="rname">Saint Kitts And Nevis</td>
+<td class="lngs"><span class="item">en-KN (English)</span></td></tr>
+
+<tr><td class="rcode">KP</td>
+<td class="rname">Korea, Democratic People's Republic Of</td>
+<td class="lngs"><span class="item">ko-KP (Korean)</span></td></tr>
+
+<tr><td class="rcode">KR</td>
+<td class="rname">Korea, Republic Of</td>
+<td class="lngs"><span class="item">ko-KR (Korean)</span></td></tr>
+
+<tr><td class="rcode">KW</td>
+<td class="rname">Kuwait</td>
+<td class="lngs"><span class="item">ar-KW (Arabic)</span></td></tr>
+
+<tr><td class="rcode">KY</td>
+<td class="rname">Cayman Islands</td>
+<td class="lngs"><span class="item">en-KY (English)</span></td></tr>
+
+<tr><td class="rcode">KZ</td>
+<td class="rname">Kazakhstan</td>
+<td class="lngs"><span class="item">av (Avaric)</span>
+<span class="item">kk (Kazakh)</span>
+<span class="item">os (Ossetian)</span>
+<span class="item">ug (Uighur)</span></td></tr>
+
+<tr><td class="rcode">LA</td>
+<td class="rname">Lao People's Democratic Republic</td>
+<td class="lngs"><span class="item">lo (Lao)</span></td></tr>
+
+<tr><td class="rcode">LB</td>
+<td class="rname">Lebanon</td>
+<td class="lngs"><span class="item">ar-LB (Arabic)</span>
+<span class="item">fr-LB (French)</span></td></tr>
+
+<tr><td class="rcode">LC</td>
+<td class="rname">Saint Lucia</td>
+<td class="lngs"><span class="item">en-LC (English)</span></td></tr>
+
+<tr><td class="rcode">LI</td>
+<td class="rname">Liechtenstein</td>
+<td class="lngs"><span class="item">de-LI (German)</span></td></tr>
+
+<tr><td class="rcode">LK</td>
+<td class="rname">Sri Lanka</td>
+<td class="lngs"><span class="item">si (Sinhala)</span></td></tr>
+
+<tr><td class="rcode">LR</td>
+<td class="rname">Liberia</td>
+<td class="lngs"><span class="item">en-LR (English)</span></td></tr>
+
+<tr><td class="rcode">LS</td>
+<td class="rname">Lesotho</td>
+<td class="lngs"><span class="item">en-LS (English)</span>
+<span class="item">st (Southern Sotho)</span>
+<span class="item">xh (Xhosa)</span></td></tr>
+
+<tr><td class="rcode">LT</td>
+<td class="rname">Lithuania</td>
+<td class="lngs"><span class="item">lt (Lithuanian)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">LU</td>
+<td class="rname">Luxembourg</td>
+<td class="lngs"><span class="item">de-LU (German)</span>
+<span class="item">fr-LU (French)</span>
+<span class="item">lb (Luxembourgish)</span></td></tr>
+
+<tr><td class="rcode">LV</td>
+<td class="rname">Latvia</td>
+<td class="lngs"><span class="item">lv (Latvian)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">LY</td>
+<td class="rname">Libyan Arab Jamahiriya</td>
+<td class="lngs"><span class="item">ar-LY (Arabic)</span></td></tr>
+
+<tr><td class="rcode">MA</td>
+<td class="rname">Morocco</td>
+<td class="lngs"><span class="item">ar-MA (Arabic)</span></td></tr>
+
+<tr><td class="rcode">MC</td>
+<td class="rname">Monaco</td>
+<td class="lngs"><span class="item">fr-MC (French)</span></td></tr>
+
+<tr><td class="rcode">MD</td>
+<td class="rname">Moldova, Republic Of</td>
+<td class="lngs"><span class="item">mo (Moldavian)</span>
+<span class="item">ro (Romanian)</span>
+<span class="item">tr (Turkish)</span>
+<span class="item">uk (Ukrainian)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">MG</td>
+<td class="rname">Madagascar</td>
+<td class="lngs"><span class="item">fr-MG (French)</span>
+<span class="item">mg (Malagasy)</span></td></tr>
+
+<tr><td class="rcode">MH</td>
+<td class="rname">Marshall Islands</td>
+<td class="lngs"><span class="item">en-MH (English)</span>
+<span class="item">mh (Marshallese)</span></td></tr>
+
+<tr><td class="rcode">MK</td>
+<td class="rname">Macedonia, The Former Yugoslav Republic Of</td>
+<td class="lngs"><span class="item">cu (Church Slavic)</span>
+<span class="item">mk (Macedonian)</span></td></tr>
+
+<tr><td class="rcode">ML</td>
+<td class="rname">Mali</td>
+<td class="lngs"><span class="item">bm (Bambara)</span>
+<span class="item">fr-ML (French)</span></td></tr>
+
+<tr><td class="rcode">MM</td>
+<td class="rname">Myanmar</td>
+<td class="lngs"><span class="item">my (Burmese)</span></td></tr>
+
+<tr><td class="rcode">MN</td>
+<td class="rname">Mongolia</td>
+<td class="lngs"><span class="item">mn (Mongolian)</span></td></tr>
+
+<tr><td class="rcode">MO</td>
+<td class="rname">Macao</td>
+<td class="lngs"><span class="item iana">zh-Hant (Chinese)</span>
+<span class="item bis">zh-Hant-MO (Chinese)</span>
+<span class="item">zh-MO (Chinese)</span></td></tr>
+
+<tr><td class="rcode">MP</td>
+<td class="rname">Northern Mariana Islands</td>
+<td class="lngs"><span class="item">ch-MP (Chamorro)</span>
+<span class="item">en-MP (English)</span></td></tr>
+
+<tr><td class="rcode">MQ</td>
+<td class="rname">Martinique</td>
+<td class="lngs"><span class="item">fr-MQ (French)</span></td></tr>
+
+<tr><td class="rcode">MR</td>
+<td class="rname">Mauritania</td>
+<td class="lngs"><span class="item">ar-MR (Arabic)</span>
+<span class="item">wo (Wolof)</span></td></tr>
+
+<tr><td class="rcode">MS</td>
+<td class="rname">Montserrat</td>
+<td class="lngs"><span class="item">en-MS (English)</span></td></tr>
+
+<tr><td class="rcode">MT</td>
+<td class="rname">Malta</td>
+<td class="lngs"><span class="item">en-MT (English)</span>
+<span class="item">mt (Maltese)</span></td></tr>
+
+<tr><td class="rcode">MU</td>
+<td class="rname">Mauritius</td>
+<td class="lngs"><span class="item">en-MU (English)</span></td></tr>
+
+<tr><td class="rcode">MV</td>
+<td class="rname">Maldives</td>
+<td class="lngs"><span class="item">dv (Divehi)</span></td></tr>
+
+<tr><td class="rcode">MW</td>
+<td class="rname">Malawi</td>
+<td class="lngs"><span class="item">en-MW (English)</span>
+<span class="item">ny (Chichewa)</span></td></tr>
+
+<tr><td class="rcode">MX</td>
+<td class="rname">Mexico</td>
+<td class="lngs"><span class="item">es-MX (Spanish)</span></td></tr>
+
+<tr><td class="rcode">MY</td>
+<td class="rname">Malaysia</td>
+<td class="lngs"><span class="item">jv (Javanese)</span>
+<span class="item">ms-MY (Malay)</span></td></tr>
+
+<tr><td class="rcode">MZ</td>
+<td class="rname">Mozambique</td>
+<td class="lngs"><span class="item">pt-MZ (Portuguese)</span>
+<span class="item">sn (Shona)</span></td></tr>
+
+<tr><td class="rcode">NA</td>
+<td class="rname">Namibia</td>
+<td class="lngs"><span class="item">en-NA (English)</span>
+<span class="item">hz (Herero)</span>
+<span class="item">ng (Ndonga)</span></td></tr>
+
+<tr><td class="rcode">NC</td>
+<td class="rname">New Caledonia</td>
+<td class="lngs"><span class="item">fr-NC (French)</span></td></tr>
+
+<tr><td class="rcode">NE</td>
+<td class="rname">Niger</td>
+<td class="lngs"><span class="item">ff-NE (Fulah)</span>
+<span class="item">fr-NE (French)</span>
+<span class="item">ha (Hausa)</span>
+<span class="item">kr (Kanuri)</span></td></tr>
+
+<tr><td class="rcode">NF</td>
+<td class="rname">Norfolk Island</td>
+<td class="lngs"><span class="item">en-NF (English)</span></td></tr>
+
+<tr><td class="rcode">NG</td>
+<td class="rname">Nigeria</td>
+<td class="lngs"><span class="item">en-NG (English)</span>
+<span class="item">ff-NG (Fulah)</span>
+<span class="item">ha (Hausa)</span>
+<span class="item">ig (Igbo)</span>
+<span class="item">kr (Kanuri)</span>
+<span class="item">yo (Yoruba)</span></td></tr>
+
+<tr><td class="rcode">NI</td>
+<td class="rname">Nicaragua</td>
+<td class="lngs"><span class="item">es-NI (Spanish)</span></td></tr>
+
+<tr><td class="rcode">NL</td>
+<td class="rname">Netherlands</td>
+<td class="lngs"><span class="item">fy-NL (Frisian)</span>
+<span class="item">li (Limburgan)</span>
+<span class="item">nl-NL (Dutch)</span></td></tr>
+
+<tr><td class="rcode">NO</td>
+<td class="rname">Norway</td>
+<td class="lngs"><span class="item">nb (Bokmål)</span>
+<span class="item">nn (Nynorsk)</span>
+<span class="item">no (Norwegian)</span>
+<span class="item dep">no-bok (Norwegian)</span>
+<span class="item dep">no-nyn (Norwegian)</span></td></tr>
+
+<tr><td class="rcode">NP</td>
+<td class="rname">Nepal</td>
+<td class="lngs"><span class="item">ne (Nepali)</span></td></tr>
+
+<tr><td class="rcode">NR</td>
+<td class="rname">Nauru</td>
+<td class="lngs"><span class="item">en-NR (English)</span>
+<span class="item">na (Nauru)</span></td></tr>
+
+<tr><td class="rcode">NU</td>
+<td class="rname">Niue</td>
+<td class="lngs"><span class="item">en-NU (English)</span></td></tr>
+
+<tr><td class="rcode">NZ</td>
+<td class="rname">New Zealand</td>
+<td class="lngs"><span class="item">en-NZ (English)</span>
+<span class="item">mi (Maori)</span></td></tr>
+
+<tr><td class="rcode">OM</td>
+<td class="rname">Oman</td>
+<td class="lngs"><span class="item">ar-OM (Arabic)</span></td></tr>
+
+<tr><td class="rcode">PA</td>
+<td class="rname">Panama</td>
+<td class="lngs"><span class="item">es-PA (Spanish)</span></td></tr>
+
+<tr><td class="rcode">PE</td>
+<td class="rname">Peru</td>
+<td class="lngs"><span class="item">ay (Aymara)</span>
+<span class="item">es-PE (Spanish)</span>
+<span class="item">qu (Quechua)</span></td></tr>
+
+<tr><td class="rcode">PF</td>
+<td class="rname">French Polynesia</td>
+<td class="lngs"><span class="item">fr-PF (French)</span>
+<span class="item">ty (Tahitian)</span></td></tr>
+
+<tr><td class="rcode">PG</td>
+<td class="rname">Papua New Guinea</td>
+<td class="lngs"><span class="item">en-PG (English)</span>
+<span class="item">ho (Hiri Motu)</span></td></tr>
+
+<tr><td class="rcode">PH</td>
+<td class="rname">Philippines</td>
+<td class="lngs"><span class="item">en-PH (English)</span>
+<span class="item">tl (Tagalog)</span></td></tr>
+
+<tr><td class="rcode">PK</td>
+<td class="rname">Pakistan</td>
+<td class="lngs"><span class="item">en-PK (English)</span>
+<span class="item">sd-PK (Sindhi)</span>
+<span class="item">ur-PK (Urdu)</span></td></tr>
+
+<tr><td class="rcode">PL</td>
+<td class="rname">Poland</td>
+<td class="lngs"><span class="item">de-PL (German)</span>
+<span class="item">pl (Polish)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">PM</td>
+<td class="rname">Saint Pierre And Miquelon</td>
+<td class="lngs"><span class="item">fr-PM (French)</span></td></tr>
+
+<tr><td class="rcode">PN</td>
+<td class="rname">Pitcairn</td>
+<td class="lngs"><span class="item">en-PN (English)</span></td></tr>
+
+<tr><td class="rcode">PR</td>
+<td class="rname">Puerto Rico</td>
+<td class="lngs"><span class="item">en-PR (English)</span>
+<span class="item">es-PR (Spanish)</span></td></tr>
+
+<tr><td class="rcode">PS</td>
+<td class="rname">Palestinian Territory, Occupied</td>
+<td class="lngs"><span class="item">ar-PS (Arabic)</span></td></tr>
+
+<tr><td class="rcode">PT</td>
+<td class="rname">Portugal</td>
+<td class="lngs"><span class="item">pt-PT (Portuguese)</span></td></tr>
+
+<tr><td class="rcode">PW</td>
+<td class="rname">Palau</td>
+<td class="lngs"><span class="item">en-PW (English)</span></td></tr>
+
+<tr><td class="rcode">PY</td>
+<td class="rname">Paraguay</td>
+<td class="lngs"><span class="item">es-PY (Spanish)</span>
+<span class="item">gn (Guarani)</span></td></tr>
+
+<tr><td class="rcode">QA</td>
+<td class="rname">Qatar</td>
+<td class="lngs"><span class="item">ar-QA (Arabic)</span></td></tr>
+
+<tr><td class="rcode">RE</td>
+<td class="rname">Réunion</td>
+<td class="lngs"><span class="item">fr-RE (French)</span></td></tr>
+
+<tr><td class="rcode">RO</td>
+<td class="rname">Romania</td>
+<td class="lngs"><span class="item">cu (Church Slavic)</span>
+<span class="item">hu (Hungarian)</span>
+<span class="item">ro (Romanian)</span>
+<span class="item">YI (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">RU</td>
+<td class="rname">Russian Federation</td>
+<td class="lngs"><span class="item">av (Avaric)</span>
+<span class="item">ba (Bashkir)</span>
+<span class="item">ce (Chechen)</span>
+<span class="item">cu (Church Slavic)</span>
+<span class="item">cv (Chuvash)</span>
+<span class="item">kv (Komi)</span>
+<span class="item">os (Ossetian)</span>
+<span class="item">ru-RU (Russian)</span>
+<span class="item">tt (Tatar)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">RW</td>
+<td class="rname">Rwanda</td>
+<td class="lngs"><span class="item">en-RW (English)</span>
+<span class="item">fr-RW (French)</span>
+<span class="item">rw (Kinyarwanda)</span></td></tr>
+
+<tr><td class="rcode">SA</td>
+<td class="rname">Saudi Arabia</td>
+<td class="lngs"><span class="item">ar-SA (Arabic)</span></td></tr>
+
+<tr><td class="rcode">SB</td>
+<td class="rname">Solomon Islands</td>
+<td class="lngs"><span class="item">en-SB (English)</span></td></tr>
+
+<tr><td class="rcode">SC</td>
+<td class="rname">Seychelles</td>
+<td class="lngs"><span class="item">en-SC (English)</span>
+<span class="item">fr-SC (French)</span></td></tr>
+
+<tr><td class="rcode">SD</td>
+<td class="rname">Sudan</td>
+<td class="lngs"><span class="item">ar-SD (Arabic)</span>
+<span class="item">din (Dinka)</span>
+<span class="item">ha (Hausa)</span></td></tr>
+
+<tr><td class="rcode">SE</td>
+<td class="rname">Sweden</td>
+<td class="lngs"><span class="item">fi-SE (Finnish)</span>
+<span class="item">se (Northern Sami)</span>
+<span class="item">sma (S. Sami)</span>
+<span class="item">sme (N. Sami)</span>
+<span class="item">sv-SE (Swedish)</span></td></tr>
+
+<tr><td class="rcode">SG</td>
+<td class="rname">Singapore</td>
+<td class="lngs"><span class="item">bn-SG (Bengali)</span>
+<span class="item">en-SG (English)</span>
+<span class="item">ms-SG (Malay)</span>
+<span class="item">ta-SG (Tamil)</span>
+<span class="item">zh-Hans-SG (Chinese)</span>
+<span class="item">zh-SG (Chinese)</span></td></tr>
+
+<tr><td class="rcode">SH</td>
+<td class="rname">Saint Helena </td>
+<td class="lngs"><span class="item">en-SH (English)</span></td></tr>
+
+<tr><td class="rcode">SI</td>
+<td class="rname">Slovenia</td>
+<td class="lngs"><span class="item">hu-SI (Hungarian)</span>
+<span class="item">it-SI (Italian)</span></td></tr>
+
+<tr><td class="rcode">SK</td>
+<td class="rname">Slovakia</td>
+<td class="lngs"><span class="item">hu (Hungarian)</span>
+<span class="item">sk (Slovak)</span></td></tr>
+
+<tr><td class="rcode">SL</td>
+<td class="rname">Sierra Leone</td>
+<td class="lngs"><span class="item">en-SL (English)</span></td></tr>
+
+<tr><td class="rcode">SM</td>
+<td class="rname">San Marino</td>
+<td class="lngs"><span class="item">it-SM (Italian)</span></td></tr>
+
+<tr><td class="rcode">SN</td>
+<td class="rname">Senegal</td>
+<td class="lngs"><span class="item">ff-SN (Fulah)</span>
+<span class="item">wo (Wolof)</span></td></tr>
+
+<tr><td class="rcode">SO</td>
+<td class="rname">Somalia</td>
+<td class="lngs"><span class="item">ar-SO (Arabic)</span>
+<span class="item">en-SO (English)</span>
+<span class="item">so-SO (Somali)</span></td></tr>
+
+<tr><td class="rcode">SR</td>
+<td class="rname">Suriname</td>
+<td class="lngs"><span class="item">jv (Javanese)</span>
+<span class="item">nl-SR (Dutch)</span></td></tr>
+
+<tr><td class="rcode">ST</td>
+<td class="rname">Sao Tome And Principe</td>
+<td class="lngs"><span class="item">pt-ST (Portuguese)</span></td></tr>
+
+<tr><td class="rcode">SV</td>
+<td class="rname">El Salvador</td>
+<td class="lngs"><span class="item">es-SV (Spanish)</span></td></tr>
+
+<tr><td class="rcode">SY</td>
+<td class="rname">Syrian Arab Republic</td>
+<td class="lngs"><span class="item">ar-SY (Arabic)</span>
+<span class="item">syr (Syriac)</span></td></tr>
+
+<tr><td class="rcode">SZ</td>
+<td class="rname">Swaziland</td>
+<td class="lngs"><span class="item">en-SZ (English)</span>
+<span class="item">ss-SZ (Swati)</span></td></tr>
+
+<tr><td class="rcode">TC</td>
+<td class="rname">Turks And Caicos Islands</td>
+<td class="lngs"><span class="item">en-TC (English)</span></td></tr>
+
+<tr><td class="rcode">TD</td>
+<td class="rname">Chad</td>
+<td class="lngs"><span class="item">ar-TD (Arabic)</span>
+<span class="item">fr-TD (French)</span></td></tr>
+
+<tr><td class="rcode">TG</td>
+<td class="rname">Togo</td>
+<td class="lngs"><span class="item">ee (Ewe)</span>
+<span class="item">fr-TG (French)</span>
+<span class="item">ha (Hausa)</span></td></tr>
+
+<tr><td class="rcode">TH</td>
+<td class="rname">Thailand</td>
+<td class="lngs"><span class="item">si (Sinhala)</span>
+<span class="item">th (Thai)</span></td></tr>
+
+<tr><td class="rcode">TJ</td>
+<td class="rname">Tajikistan</td>
+<td class="lngs"><span class="item">os (Ossetian)</span>
+<span class="item">tg (Tajik)</span>
+<span class="item">ug (Uighur)</span></td></tr>
+
+<tr><td class="rcode">TK</td>
+<td class="rname">Tokelau</td>
+<td class="lngs"><span class="item">en-TK (English)</span></td></tr>
+
+<tr><td class="rcode">TL</td>
+<td class="rname">Timor-Leste</td>
+<td class="lngs"><span class="item">pt-TL (Portuguese)</span></td></tr>
+
+<tr><td class="rcode">TM</td>
+<td class="rname">Turkmenistan</td>
+<td class="lngs"><span class="item">os (Ossetian)</span>
+<span class="item">tk (Turkmen)</span></td></tr>
+
+<tr><td class="rcode">TN</td>
+<td class="rname">Tunisia</td>
+<td class="lngs"><span class="item">ar-TN (Arabic)</span></td></tr>
+
+<tr><td class="rcode">TO</td>
+<td class="rname">Tonga</td>
+<td class="lngs"><span class="item">en-TO (English)</span>
+<span class="item">to (Tongan)</span></td></tr>
+
+<tr><td class="rcode">TR</td>
+<td class="rname">Turkey</td>
+<td class="lngs"><span class="item">ab (Abkhazian)</span>
+<span class="item">av (Avaric)</span>
+<span class="item">ku (Kurdish)</span>
+<span class="item">tr-TR (Turkish)</span>
+<span class="item">ug (Uighur)</span></td></tr>
+
+<tr><td class="rcode">TT</td>
+<td class="rname">Trinidad And Tobago</td>
+<td class="lngs"><span class="item">en-TT (English)</span></td></tr>
+
+<tr><td class="rcode">TV</td>
+<td class="rname">Tuvalu</td>
+<td class="lngs"><span class="item">gil (Gilbertese)</span>
+<span class="item">tvl (Tuvalu)</span></td></tr>
+
+<tr><td class="rcode">TW</td>
+<td class="rname">Taiwan, Province Of China</td>
+<td class="lngs"><span class="item iana">zh-Hant (Chinese)</span>
+<span class="item bis">zh-Hant-TW (Chinese)</span>
+<span class="item iana">zh-min (Chinese)</span>
+<span class="item iana">zh-min-nan (Chinese)</span>
+<span class="item">zh-TW (Chinese)</span></td></tr>
+
+<tr><td class="rcode">TZ</td>
+<td class="rname">Tanzania, United Republic Of</td>
+<td class="lngs"><span class="item">sw-TZ (Swahili)</span></td></tr>
+
+<tr><td class="rcode">UA</td>
+<td class="rname">Ukraine</td>
+<td class="lngs"><span class="item">ab (Abkhazian)</span>
+<span class="item">cu (Church Slavic)</span>
+<span class="item">hu (Hungarian)</span>
+<span class="item">os (Ossetian)</span>
+<span class="item">pl (Polish)</span>
+<span class="item">ro (Romanian)</span>
+<span class="item">ru-UA (Russian)</span>
+<span class="item">uk (Ukrainian)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">UG</td>
+<td class="rname">Uganda</td>
+<td class="lngs"><span class="item">en-UG (English)</span>
+<span class="item">lg (Ganda)</span></td></tr>
+
+<tr><td class="rcode">UM</td>
+<td class="rname">United States Minor Outlying Islands</td>
+<td class="lngs"><span class="item">en-UM (English)</span></td></tr>
+
+<tr><td class="rcode">US</td>
+<td class="rname">United States</td>
+<td class="lngs"><span class="item">en-US (English)</span>
+<span class="item">es-US (Spanish)</span>
+<span class="item">haw (Hawaiian)</span>
+<span class="item">ik (Inupiaq)</span>
+<span class="item">nv (Navajo)</span>
+<span class="item">oj (Ojibwa)</span>
+<span class="item">yi (Yiddish)</span></td></tr>
+
+<tr><td class="rcode">UY</td>
+<td class="rname">Uruguay</td>
+<td class="lngs"><span class="item">es-UY (Spanish)</span></td></tr>
+
+<tr><td class="rcode">UZ</td>
+<td class="rname">Uzbekistan</td>
+<td class="lngs"><span class="item">os (Ossetian)</span>
+<span class="item">ug (Uighur)</span>
+<span class="item iana">uz-Cyrl (Uzbek)</span>
+<span class="item iana">uz-Latn (Uzbek)</span>
+<span class="item">uz-UZ (Uzbek)</span></td></tr>
+
+<tr><td class="rcode">VA</td>
+<td class="rname">Holy See (Vatican City State)</td>
+<td class="lngs"><span class="item">fr (French)</span>
+<span class="item">it (Italian)</span>
+<span class="item">la (Latin)</span></td></tr>
+
+<tr><td class="rcode">VC</td>
+<td class="rname">Saint Vincent And The Grenadines</td>
+<td class="lngs"><span class="item">en-VC (English)</span></td></tr>
+
+<tr><td class="rcode">VE</td>
+<td class="rname">Venezuela</td>
+<td class="lngs"><span class="item">es-VE (Spanish)</span></td></tr>
+
+<tr><td class="rcode">VG</td>
+<td class="rname">Virgin Islands, British</td>
+<td class="lngs"><span class="item">en-VG (English)</span></td></tr>
+
+<tr><td class="rcode">VI</td>
+<td class="rname">Virgin Islands, U.S.</td>
+<td class="lngs"><span class="item">en-VI (English)</span></td></tr>
+
+<tr><td class="rcode">VN</td>
+<td class="rname">Viet Nam</td>
+<td class="lngs"><span class="item">vi (Vietnamese)</span></td></tr>
+
+<tr><td class="rcode">VU</td>
+<td class="rname">Vanuatu</td>
+<td class="lngs"><span class="item">bi (Bislama)</span>
+<span class="item">en-VU (English)</span>
+<span class="item">fr-VU (French)</span></td></tr>
+
+<tr><td class="rcode">WF</td>
+<td class="rname">Wallis And Futuna</td>
+<td class="lngs"><span class="item">fr-WF (French)</span></td></tr>
+
+<tr><td class="rcode">WS</td>
+<td class="rname">Samoa</td>
+<td class="lngs"><span class="item">en-WS (English)</span>
+<span class="item">sm (Samoan)</span></td></tr>
+
+<tr><td class="rcode">YE</td>
+<td class="rname">Yemen</td>
+<td class="lngs"><span class="item">ar-YE (Arabic)</span></td></tr>
+
+<tr><td class="rcode">YT</td>
+<td class="rname">Mayotte</td>
+<td class="lngs"><span class="item">fr-YT (French)</span></td></tr>
+
+<tr><td class="rcode">YU</td>
+<td class="rname">Yugoslavia</td>
+<td class="lngs"><span class="item bis">sr-Cyrl-YU (Serbian)</span>
+<span class="item bis">sr-Latn-YU (Serbian)</span>
+<span class="item dep">sr-YU (Serbian)</span></td></tr>
+
+<tr><td class="rcode">ZA</td>
+<td class="rname">South Africa</td>
+<td class="lngs"><span class="item">af (Afrikaans)</span>
+<span class="item">en-ZA (English)</span>
+<span class="item">nr (S. Ndebele)</span>
+<span class="item">ss-ZA (Swati)</span>
+<span class="item">tn-ZA (Tswana)</span>
+<span class="item">ts (Tsonga)</span>
+<span class="item">ve (Venda)</span>
+<span class="item">xh (Xhosa)</span>
+<span class="item">yi (Yiddish)</span>
+<span class="item">zu (Zulu)</span></td></tr>
+
+<tr><td class="rcode">ZM</td>
+<td class="rname">Zambia</td>
+<td class="lngs"><span class="item">en-ZM (English)</span></td></tr>
+
+<tr><td class="rcode">ZW</td>
+<td class="rname">Zimbabwe</td>
+<td class="lngs"><span class="item">en-ZW (English)</span>
+<span class="item">nd (N. Ndebele)</span>
+<span class="item">sn (Shona)</span>
+<span class="item">ve (Venda)</span>
+<span class="item">zu (Zulu)</span></td></tr>
+</table>
+
+<h3>References</h3>
+<ul>
+<li><a href="http://www.iana.org/assignments/language-tags" target="_blank">IANA Language Tag Registry</a>
+</li><li><a href="http://www.loc.gov/standards/iso639-2/langcodes.html" target="_blank">ISO 639, Codes for the
+Representation of Names of Languages</a>
+</li><li><a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html" target="_blank">ISO 3166-1, Codes For The Representation Of Names Of Countries And Their Subdivisions - Part 1: Country Codes</a>
+</li><li><a href="http://www.unicode.org/iso15924/codelists.html" target="_blank">ISO 15924, Codes For The Representation Of Names Of Scripts</a>
+</li><li><a target="_blank" href="http://unstats.un.org/unsd/methods/m49/m49.htm">U. N. Standard Country or Area Codes for Statistical Use</a>
+</li>
+</ul>
+
+<ul>
+<li><a target="_blank" href="http://www.odci.gov/cia/publications/factbook/fields/2098.html">CIA factbook languages</a>
+</li><li><a href="http://www.ethnologue.com/" target="_blank">SIL International's Ethnologue</a>
+
+</li><li><a href="http://www.unhchr.ch/udhr/navigate/alpha.htm" target="_blank">Translations of the Universal Declaration of Human Rights</a>
+
+
+</li><li><a href="http://en.wikipedia.org/wiki/Language" target="_blank">Wikipedia on Language</a>
+</li></ul>
+
+<p class="copyright" style="clear:both;">
+<a href="http://www.unicode.org" target="_blank" style="float:right;"><img border="0"
+src="../images/UniEncGreyBord.gif" width="88" height="31" alt="Encoded in UTF-8!"></a>
+
+Copyright &copy; 2004, 2005 Tex Texin, John Cowan. All rights reserved.
+<br><a href="http://www.i18nguy.com/unicode/language-identifiers.html">This page</a> last updated 2005-01-01.
+<br><a href="#top">Top of page</a>
+</p>
+</body>
+</html>
